@@ -95,16 +95,26 @@ export default function scheduleReducer(state = initialState, action) {
         return {...state,scheduleDataOutput: scheduleDataOutput,jsonOutput:JSON.stringify(scheduleDataOutput,null, 2)}
       }
       case types.CHANGE_SCHEDULE_TABLE_MOUSE_MOVE:{
-      const {day,hour}= action
+      const {day,hour,whatToDo}= action
+      console.log('MOUSE_MOVE',whatToDo)
       let scheduleTableUpdated={...state.scheduleTable}
+      if (whatToDo=='add'){
+      // let scheduleTableUpdated={...state.scheduleTable}
 
       scheduleTableUpdated[day].length
       ?
       !scheduleTableUpdated[day].includes(hour) &&  scheduleTableUpdated[day].push(hour)
-
-
      :
       scheduleTableUpdated[day].push(hour)
+    }
+    if (whatToDo=='del'){
+
+      scheduleTableUpdated[day].length
+      ?
+      scheduleTableUpdated[day].includes(hour) &&  scheduleTableUpdated[day].splice(scheduleTableUpdated[day].indexOf(hour),1)
+     :
+      null
+    }
 
       return {...state,scheduleTable: scheduleTableUpdated}
       }

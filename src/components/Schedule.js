@@ -14,6 +14,7 @@ class Schedule extends Component {
      super(props, context);
      this.state={
        selectionInProgress:false,
+       deletionInProgress:false,
      }
   this.props.actions.loadSchedule(data);
    }
@@ -23,12 +24,18 @@ class Schedule extends Component {
    }
    onMouseEnter= (day,hour)=>(e)=>{
     const { scheduleTable } = this.props;
-    this.state.selectionInProgress ? this.props.actions.changeScheduleTableMouseMove(+day,+hour) : null;
+    this.state.selectionInProgress ? this.props.actions.changeScheduleTableMouseMove(+day,+hour,'add') : null;
+    this.state.deletionInProgress ? this.props.actions.changeScheduleTableMouseMove(+day,+hour,'del') : null;
 
    }
-   selectionToggle = (type)=>()=>{
-     type=='start' && this.setState({selectionInProgress:true})
-     type=='end' && this.setState({selectionInProgress:false})
+   selectionToggle = (type)=>(e)=>{
+     console.log('which button',e.button)
+
+     type=='start' && e.button==0 && this.setState({selectionInProgress:true})
+     type=='end'  && e.button==0 && this.setState({selectionInProgress:false})
+     //
+     type=='start' && e.button==2 && this.setState({deletionInProgress:true})
+     type=='end'  && e.button==2 && this.setState({deletionInProgress:false})
    }
    toggleMarkAllDay= (day)=>(e)=>{
      let toggle;
