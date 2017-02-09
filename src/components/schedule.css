@@ -10,6 +10,13 @@
   height: 65px;
   border:1px solid black;
 }
+.cell-head {
+  /*background: orange;*/
+
+  width:  30px;
+  height: 50px;
+  border-right:2px solid black;
+}
 .allday {
   background: green;
   width:  70px;
@@ -33,8 +40,20 @@
   margin-top:50px;
 }
 .output{
-
-
   width:70%;
   margin-top:50px;
 }
+.vertical{
+  font: 16px Georgia, Serif;
+  padding: 5px;
+  /*float:left;*/
+  /*margin: 0 10px 0 0;*/
+  -webkit-writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+/*span{
+  -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}*/

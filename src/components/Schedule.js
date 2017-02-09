@@ -62,7 +62,16 @@ class Schedule extends Component {
         arr.push(part);
         return arr;
       }, [...test]);
+const rendeTh=()=>{
+  let tempArr=[];
+  let show;
+  for(let i=1;i<27;i++){
+    show=(i-2);
+    tempArr.push(<th className={show%3==0 && 'cell-head'}> <span className="vertical">{i!==2 && show%3==0 && show+':00'}</span></th>)
+}
 
+return tempArr;
+}
       //////////
       return (
           <div>
@@ -73,7 +82,11 @@ class Schedule extends Component {
           {/* {console.log("maxItems", maxItems)} */}
 
           <table>
-            <thead></thead>
+            <thead>
+              <tr>
+              {rendeTh()}
+              </tr>
+            </thead>
             <tbody>
             {Object.keys(scheduleTable).map(sh =>
             (<tr key={sh}>
