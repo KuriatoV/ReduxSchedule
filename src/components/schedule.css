@@ -1,0 +1,39 @@
+.higlight-cell {
+  background: red;
+  width:  30px;
+  height: 65px;
+}
+.cell {
+  background: yellow;
+  width:  30px;
+  height: 65px;
+  border:1px solid black;
+}
+.allday {
+  background: green;
+  width:  70px;
+  height: 65px;
+  border:1px solid black;
+}
+.days {
+  text-align: center;
+  background: grey;
+  width:  50px;
+  height: 65px;
+  border:1px solid black;
+  color:white;
+  font-size: 20px;
+}
+.save-btn{
+  background:green;
+  /*float:right;*/
+  height:50px;
+  width:200px;
+  margin-top:50px;
+}
+.output{
+
+
+  width:70%;
+  margin-top:50px;
+}
