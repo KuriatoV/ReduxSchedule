@@ -48,6 +48,7 @@ export default function scheduleReducer(state = initialState, action) {
         Object.keys(schedule).map(each=>{
         schedule[each].map(item=>{
         let start=item.bt/60;
+        (start==0) ? (start=1 ):null;
         let stop=(item.et+1)/60;
         let period=stop-start;
         for (let i=start; i<=period+start; i++){
@@ -91,9 +92,21 @@ export default function scheduleReducer(state = initialState, action) {
           Object.keys(data).map((num)=>
            scheduleDataOutput[daysByNumber(num)]=data[num].map(item=>({bt:item*60-60,et:item*60+59-60}))
         )
-
-
         return {...state,scheduleDataOutput: scheduleDataOutput,jsonOutput:JSON.stringify(scheduleDataOutput,null, 2)}
+      }
+      case types.CHANGE_SCHEDULE_TABLE_MOUSE_MOVE:{
+      const {day,hour}= action
+      let scheduleTableUpdated={...state.scheduleTable}
+
+      scheduleTableUpdated[day].length
+      ?
+      !scheduleTableUpdated[day].includes(hour) &&  scheduleTableUpdated[day].push(hour)
+
+
+     :
+      scheduleTableUpdated[day].push(hour)
+
+      return {...state,scheduleTable: scheduleTableUpdated}
       }
         default: {
             return state;

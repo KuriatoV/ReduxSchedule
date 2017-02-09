@@ -2,6 +2,7 @@
   background: red;
   width:  30px;
   height: 65px;
+    border:1px solid black;
 }
 .cell {
   background: yellow;

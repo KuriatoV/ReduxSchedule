@@ -23,7 +23,7 @@ class Schedule extends Component {
    }
    onMouseEnter= (day,hour)=>(e)=>{
     const { scheduleTable } = this.props;
-    this.state.selectionInProgress ? this.props.actions.changeScheduleTable(+day,+hour) : null;
+    this.state.selectionInProgress ? this.props.actions.changeScheduleTableMouseMove(+day,+hour) : null;
 
    }
    selectionToggle = (type)=>()=>{
@@ -64,7 +64,7 @@ class Schedule extends Component {
                   onMouseDown={this.selectionToggle('start')}
                   onMouseUp={this.selectionToggle('end')}
 
-                  >{/*cell*/}
+                  >{cell}
                 </td>))}
             </tr>)
             )
@@ -78,7 +78,7 @@ class Schedule extends Component {
               Save changes
             </button>
             <div className="output">{jsonOutput}</div>
-      
+
             </div>
         )
     }

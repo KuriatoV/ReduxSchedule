@@ -6,6 +6,9 @@ export function loadSchedule (scheduleData) {
 export function changeScheduleTable (day,hour) {
     return {type: types.CHANGE_SCHEDULE_TABLE, day,hour};
 }
+export function changeScheduleTableMouseMove (day,hour) {
+    return {type: types.CHANGE_SCHEDULE_TABLE_MOUSE_MOVE, day,hour};
+}
 export function markAllDay (day) {
     return {type: types.MARK_ALL_DAY, day};
 }
