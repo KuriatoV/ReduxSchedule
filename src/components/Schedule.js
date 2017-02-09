@@ -67,7 +67,7 @@ const rendeTh=()=>{
   let show;
   for(let i=1;i<27;i++){
     show=(i-2);
-    tempArr.push(<th className={show%3==0 && 'cell-head'}> <span className="vertical">{i!==2 && show%3==0 && show+':00'}</span></th>)
+    tempArr.push(<th className={i!==2 && show%3==0 && 'cell-head'}> <span className="vertical">{i!==2 && show%3==0 && show+':00'}</span></th>)
 }
 
 return tempArr;
@@ -104,7 +104,8 @@ return tempArr;
                   onMouseDown={this.selectionToggle('start')}
                   onMouseUp={this.selectionToggle('end')}
 
-                  >{cell}
+                  >
+                    {/* {cell} */}
                 </td>))}
             </tr>)
             )

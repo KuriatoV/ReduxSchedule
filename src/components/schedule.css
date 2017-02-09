@@ -1,11 +1,11 @@
 .higlight-cell {
-  background: red;
+  background: #1D1F21;
   width:  30px;
   height: 65px;
     border:1px solid black;
 }
 .cell {
-  background: yellow;
+  /*background: yellow;*/
   width:  30px;
   height: 65px;
   border:1px solid black;
