@@ -1,60 +1,84 @@
 .higlight-cell {
-  background: #1D1F21;
-  width:  30px;
-  height: 65px;
-    border:1px solid black;
+    background: #1D1F21;
+    width: 30px;
+    height: 65px;
+    border: 1px solid black;
 }
+
 .cell {
   /*background: yellow;*/
-  width:  30px;
+  width: 30px;
   height: 65px;
-  border:1px solid black;
+  border: 1px solid black;
 }
+
 .cell-head {
   /*background: orange;*/
-
-  width:  30px;
+  width: 30px;
   height: 50px;
-
-  border-right:2px solid black;
+  border-right: 2px solid black;
 }
+
 .allday {
   background: grey;
-  width:  70px;
+  width: 70px;
   height: 65px;
-  border:1px solid black;
+  border: 1px solid black;
 }
+
 .days {
   text-align: center;
   background: grey;
-  width:  50px;
+  width: 50px;
   height: 65px;
-  border:1px solid black;
-  color:white;
+  border: 1px solid black;
+  color: white;
   font-size: 20px;
 }
-.save-btn{
-  background:green;
+
+.save-btn {
+  background: green;
   /*float:right;*/
-  height:50px;
-  width:200px;
-  margin-top:50px;
+  height: 50px;
+  width: 200px;
+  margin-top: 50px;
 }
-.output{
-  width:70%;
-  margin-top:50px;
+
+.output {
+  width: 70%;
+  margin-top: 50px;
 }
-.vertical{
+
+.vertical {
   font: 16px Georgia, Serif;
   padding: 1px;
   /*float:left;*/
   /*margin: 0 10px 0 0;*/
   -webkit-writing-mode: vertical-rl;
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-/*span{
-  -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-}*/
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
+}
+
+.nodrag {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

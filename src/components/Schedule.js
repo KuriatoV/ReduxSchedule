@@ -94,14 +94,14 @@ return tempArr;
 }
       //////////
       return (
-          <div>
+          <div >
             <h1 >SET SCHEDULE</h1>
-          {console.log("scheduleTable", scheduleTable)}
+          {/* {console.log("scheduleTable", scheduleTable)} */}
           {/* {console.log("test", test)} */}
           {/* {console.log( 'transformMass(scheduleTable[1])>>',transformMass(scheduleTable[1]) ) } */}
           {/* {console.log("maxItems", maxItems)} */}
 
-          <table>
+          <table className='nodrag noselect'>
             <thead>
               <tr>
               {rendeTh()}
