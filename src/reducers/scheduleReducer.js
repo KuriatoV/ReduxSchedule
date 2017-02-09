@@ -76,7 +76,7 @@ export default function scheduleReducer(state = initialState, action) {
       case types.MARK_ALL_DAY:{
         const {day}=action
         let scheduleTableUpdated={...state.scheduleTable}
-         scheduleTableUpdated[day]=state.everyHour
+         scheduleTableUpdated[day]=[...state.everyHour]
 
         return {...state,scheduleTable: scheduleTableUpdated}
       }

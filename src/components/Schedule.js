@@ -48,12 +48,32 @@ class Schedule extends Component {
 
     render() {
       const {scheduleTable,everyHour,scheduleDataOutput,jsonOutput } = this.props;
+      /////////testblock///////////////
+      let test=[1,2,3,5,7,8,9,10,15,16,17,18,21,22,24 ]
+      let test2=[50, 50, 20, 1,2,3,5,7,8,9,10,15,16,17,18,21,22,24 ]
+      const maxItems = test.filter((item,idx) => item + 1 !== test[idx + 1]);
+
+
+      const sortNumber = (a, b) => a - b;
+      const sortarr = test2.sort(sortNumber);
+      console.log({ sortarr });
+      const result2 = maxItems.reduce((arr, item, i) => {
+        const part = arr.splice(0, arr.indexOf(item) + 1);
+        arr.push(part);
+        return arr;
+      }, [...test]);
+
+      //////////
       return (
           <div>
             <h1 >SET SCHEDULE</h1>
-          {console.log("scheduleTable", scheduleTable)}
+          {/* {console.log("scheduleTable", scheduleTable)} */}
+          {/* {console.log("test", test)} */}
+          {/* {console.log({ result2 })} */}
+          {/* {console.log("maxItems", maxItems)} */}
 
           <table>
+            <thead></thead>
             <tbody>
             {Object.keys(scheduleTable).map(sh =>
             (<tr key={sh}>
