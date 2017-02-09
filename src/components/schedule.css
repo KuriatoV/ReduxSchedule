@@ -15,10 +15,11 @@
 
   width:  30px;
   height: 50px;
+
   border-right:2px solid black;
 }
 .allday {
-  background: green;
+  background: grey;
   width:  70px;
   height: 65px;
   border:1px solid black;
@@ -45,7 +46,7 @@
 }
 .vertical{
   font: 16px Georgia, Serif;
-  padding: 5px;
+  padding: 1px;
   /*float:left;*/
   /*margin: 0 10px 0 0;*/
   -webkit-writing-mode: vertical-rl;

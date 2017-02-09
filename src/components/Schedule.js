@@ -20,7 +20,7 @@ class Schedule extends Component {
    }
    onCellClick= (day,hour)=>(e)=>{
     const { scheduleTable } = this.props;
-    this.props.actions.changeScheduleTable(+day,+hour);
+    e.button==0 && this.props.actions.changeScheduleTable(+day,+hour);
    }
    onMouseEnter= (day,hour)=>(e)=>{
     const { scheduleTable } = this.props;
@@ -34,8 +34,8 @@ class Schedule extends Component {
      type=='start' && e.button==0 && this.setState({selectionInProgress:true})
      type=='end'  && e.button==0 && this.setState({selectionInProgress:false})
      //
-     type=='start' && e.button==2 && this.setState({deletionInProgress:true})
-     type=='end'  && e.button==2 && this.setState({deletionInProgress:false})
+    //  type=='start' && e.button==2 && this.setState({deletionInProgress:true}) //для удаления по второй кнопке
+    //  type=='end'  && e.button==2 && this.setState({deletionInProgress:false})
    }
    toggleMarkAllDay= (day)=>(e)=>{
      let toggle;
@@ -49,19 +49,39 @@ class Schedule extends Component {
     render() {
       const {scheduleTable,everyHour,scheduleDataOutput,jsonOutput } = this.props;
       /////////testblock///////////////
-      let test=[1,2,3,5,7,8,9,10,15,16,17,18,21,22,24 ]
-      let test2=[50, 50, 20, 1,2,3,5,7,8,9,10,15,16,17,18,21,22,24 ]
-      const maxItems = test.filter((item,idx) => item + 1 !== test[idx + 1]);
+      // let test=[1,2,3,5,7,8,9,10,15,16,17,18,21,22,24 ]
+      // let test2=[50, 50, 20, 1,2,3,5,7,8,9,10,15,16,17,18,21,22,24 ]
+      // const sortarr = test2.sort(sortNumber);
+      // const maxItems = test.filter((item,idx) => item + 1 !== test[idx + 1]);
+      //
+      //
+      // const sortNumber = (a, b) => a - b;
+      // // console.log({ sortarr });
+
+      // const result2 = maxItems.reduce((arr, item, i) => {
+      //   const part = arr.splice(0, arr.indexOf(item) + 1);
+      //   arr.push(part);
+      //   return arr;
+      // }, [...test]);
 
 
-      const sortNumber = (a, b) => a - b;
-      const sortarr = test2.sort(sortNumber);
-      console.log({ sortarr });
-      const result2 = maxItems.reduce((arr, item, i) => {
-        const part = arr.splice(0, arr.indexOf(item) + 1);
-        arr.push(part);
-        return arr;
-      }, [...test]);
+
+
+    //   const transformMass = (inputArray)=>{
+    //   const mass=inputArray.sort((a, b) => a - b);
+    //   const maxItems= mass.filter((item,idx) => item + 1 !== mass[idx + 1]);
+    //   const result= maxItems.reduce((arr, item) => {
+    //     let part = arr.splice(0, arr.indexOf(item) + 1); arr.push(part);
+    //     return arr; }, [...mass]);
+    //     let finalResult;
+    //     finalResult=result.map(each=> !console.log('each',each,{bt:each[0],et:each[each.length-1]}) &&{bt:Math.min(...each),et:Math.max(...each)})
+    //     return finalResult;
+    //
+    // }
+
+
+
+
 const rendeTh=()=>{
   let tempArr=[];
   let show;
@@ -76,9 +96,9 @@ return tempArr;
       return (
           <div>
             <h1 >SET SCHEDULE</h1>
-          {/* {console.log("scheduleTable", scheduleTable)} */}
+          {console.log("scheduleTable", scheduleTable)}
           {/* {console.log("test", test)} */}
-          {/* {console.log({ result2 })} */}
+          {/* {console.log( 'transformMass(scheduleTable[1])>>',transformMass(scheduleTable[1]) ) } */}
           {/* {console.log("maxItems", maxItems)} */}
 
           <table>

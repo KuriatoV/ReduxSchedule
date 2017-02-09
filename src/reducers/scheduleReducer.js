@@ -5,6 +5,17 @@ const daysByNumber= (num)=>{
   let daysObj={1:'mo',2:'tu',3:'we',4:'th',5:'fr',6:'sa',7:'su'}
   return daysObj[num];
 }
+const transformMass = (inputArray)=>{
+const mass=inputArray.sort((a, b) => a - b);
+const maxItems= mass.filter((item,idx) => item + 1 !== mass[idx + 1]);
+const result= maxItems.reduce((arr, item) => {
+  let part = arr.splice(0, arr.indexOf(item) + 1); arr.push(part);
+  return arr; }, [...mass]);
+  // let finalResult;
+  // finalResult=result.map(each=>{bt:Math.min(...each),et:Math.max(...each)})
+  // return finalResult;
+return  result;
+}
 
 const initialState = {
 everyHour:Array.from({ length: 24 }, (v, k) => k+1),
@@ -90,10 +101,21 @@ export default function scheduleReducer(state = initialState, action) {
         const data=action.data;
         let scheduleDataOutput={};
           Object.keys(data).map((num)=>
-           scheduleDataOutput[daysByNumber(num)]=data[num].map(item=>({bt:item*60-60,et:item*60+59-60}))
+           scheduleDataOutput[daysByNumber(num)]=transformMass(data[num]).map(item=>({bt:item[0]*60-60,et:item[item.length-1]*60-1}))
         )
         return {...state,scheduleDataOutput: scheduleDataOutput,jsonOutput:JSON.stringify(scheduleDataOutput,null, 2)}
       }
+      // case types.TRANSFORM_DATA:{
+      //   const data=action.data;
+      //   let scheduleDataOutput={};
+      //     Object.keys(data).map((num)=>
+      //      scheduleDataOutput[daysByNumber(num)]=data[num].map(item=>({bt:item*60-60,et:item*60+59-60}))
+      //   )
+      //   return {...state,scheduleDataOutput: scheduleDataOutput,jsonOutput:JSON.stringify(scheduleDataOutput,null, 2)}
+      // }
+
+
+
       case types.CHANGE_SCHEDULE_TABLE_MOUSE_MOVE:{
       const {day,hour,whatToDo}= action
       console.log('MOUSE_MOVE',whatToDo)
